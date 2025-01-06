@@ -5,11 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     ui.renderizarPensamentos();
 
     const formularioPensamento = document.getElementById("pensamento-form");
-    formularioPensamento.addEventListener("submit", manipularsubmisoaformulario);
+    const botaoCancelar = document.getElementById("botao-cancelar");
+
+    formularioPensamento.addEventListener("submit", manipularSubmissaoformulario);
+    botaoCancelar.addEventListener("click", manipularCancelamento);
 });
 
-async function manipularsubmisoaformulario(event) {
-   event.preventdefault();
+async function manipularSubmissaoformulario(event) {
+   event.preventDefault();
    const id = document.getElementById("pensamento-id").value;
    const conteudo = document.getElementById("pensamento-conteudo").value;
    const autoria = document.getElementById("pensamento-autoria").value;
@@ -21,3 +24,7 @@ async function manipularsubmisoaformulario(event) {
         alert("Erro ao salvar pensamento");
     }
 }
+
+function manipularCancelamento() {
+    ui.limparFormulario();
+  }

@@ -10,6 +10,10 @@ const ui = {
         }
     },
 
+    limparFormulario() {
+        document.getElementById("pensamento-form").reset();
+    },
+
     adicionarPensamentoNaLista(pensamento) {
         const listaPensamentos = document.getElementById("lista-pensamentos");
         const li = document.createElement("li");
